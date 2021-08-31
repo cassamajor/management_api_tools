@@ -1,0 +1,27 @@
+{
+    "status": "Published",
+    "enabled": false,
+    "policyId": "Allow all requests by the data creator [Duplicate]",
+    "description": "Allow requests for any key from any enrolled device.",
+    "ruleCombiningAlgId": "deny-overrides",
+    "rules": [
+        {
+            "ruleId": "0aa0",
+            "effect": "Permit",
+            "description": "Allow access when user is the data creator.",
+            "condition": {
+                "functionId": "string-equal",
+                "args": [
+                    {
+                        "category": "resource",
+                        "id": "created-user-id"
+                    },
+                    {
+                        "category": "subject",
+                        "id": "subject-id"
+                    }
+                ]
+            }
+        }
+    ]
+}
